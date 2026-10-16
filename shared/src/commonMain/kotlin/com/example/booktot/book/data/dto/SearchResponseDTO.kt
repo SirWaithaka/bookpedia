@@ -1,4 +1,4 @@
-package com.example.booktot.book.data
+package com.example.booktot.book.data.dto
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
