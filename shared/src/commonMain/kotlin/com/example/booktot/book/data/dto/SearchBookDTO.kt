@@ -24,7 +24,7 @@ data class SearchBookDTO(
 // mapper function
 fun SearchBookDTO.toBook(): Book {
     return Book(
-        id = id,
+        id = id.substringAfterLast("/"),
         title = title,
         imageUrl = if (coverKey != null) "https://covers.openlibrary.org/b/olid/${coverKey}-L.jpg"
         else "https://covers.openlibrary.org/b/olid/${coverAlternativeKey}-L.jpg",

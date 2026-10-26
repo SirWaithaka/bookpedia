@@ -63,6 +63,7 @@ kotlin {
             implementation(libs.bundles.ktor)
             implementation(libs.bundles.coil)
             implementation(libs.kotlinxSerializationJson)
+            implementation(libs.jetbrains.compose.navigation)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
