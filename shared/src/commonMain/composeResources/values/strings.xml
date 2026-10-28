@@ -2,9 +2,19 @@
     <string name="search_hint">Search...</string>
     <string name="close_hint">Clear search</string>
     <string name="search_results">Search Results</string>
-    <string name="favorites">Favorites</string>
+    <string name="favorites">Favourites</string>
     <string name="no_search_results">Oops! No results found for your query.</string>
-    <string name="no_favorites">No favorite books saved.</string>
+    <string name="no_favorites">No favourite books saved.</string>
+    <string name="book_cover">Book Cover</string>
+    <string name="rating">Rating</string>
+    <string name="languages">Languages</string>
+    <string name="pages">Pages</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="no_description">Description not available</string>
+    <string name="mark_favorite">Mark As Favourite</string>
+    <string name="remove_favorite">Remove From Favourites</string>
+    <string name="go_back">Go back</string>
+
     <!-- error string resources   -->
     <string name="error_storage_full">Not enough space available on disk</string>
     <string name="error_unknown">Oops, something went wrong</string>

@@ -18,6 +18,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.example.booktot.app.sharedKoinViewModel
 import com.example.booktot.book.presentation.SelectedBookViewModel
+import com.example.booktot.book.presentation.book_detail.BookDetailAction
 import com.example.booktot.book.presentation.book_detail.BookDetailScreenRoot
 import com.example.booktot.book.presentation.book_detail.BookDetailViewModel
 
@@ -53,6 +54,12 @@ fun App() {
                         it.sharedKoinViewModel<SelectedBookViewModel>(navController)
                     val selectedBook by selectedBookViewModel.selectedBook.collectAsStateWithLifecycle()
                     val viewModel = koinViewModel<BookDetailViewModel>()
+
+                    LaunchedEffect(selectedBook) {
+                        selectedBook?.let {
+                            viewModel.onAction(BookDetailAction.OnSelectedBookChange(it))
+                        }
+                    }
 
                     BookDetailScreenRoot(
                         viewModel = viewModel,
