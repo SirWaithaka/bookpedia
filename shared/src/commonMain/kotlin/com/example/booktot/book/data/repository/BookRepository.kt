@@ -15,4 +15,8 @@ class BookRepository(private val dataSource: RemoteBookDataSource) : BookReposit
             dto.results.map { it.toBook() }
         }
     }
+
+    override suspend fun getBookDescription(bookId: String): Result<String?, DataError> {
+        return dataSource.getBookDetails(bookId).map { it.description }
+    }
 }

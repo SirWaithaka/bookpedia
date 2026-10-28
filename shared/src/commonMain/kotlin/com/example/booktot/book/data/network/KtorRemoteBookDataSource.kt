@@ -1,5 +1,6 @@
 package com.example.booktot.book.data.network
 
+import com.example.booktot.book.data.dto.BookWorkDTO
 import com.example.booktot.book.data.dto.SearchResponseDTO
 import com.example.booktot.core.data.safeCall
 import com.example.booktot.core.domain.DataError
@@ -25,10 +26,15 @@ class KtorRemoteBookDataSource(
                 parameter("language", "eng")
                 parameter(
                     "fields",
-                    "key,title,language,cover_i,author_key,author_name,cover_edition_key,first_publish_year,ratings_year,ratings_count,number_of_pages_median,edition_count"
+                    "key,title,language,cover_i,author_key,author_name,cover_edition_key,first_publish_year,ratings_year,ratings_count,ratings_average,number_of_pages_median,edition_count"
                 )
             }
         }
     }
 
+    override suspend fun getBookDetails(bookId: String): Result<BookWorkDTO, DataError.Remote> {
+        return safeCall<BookWorkDTO> {
+            httpClient.get(urlString = "$BASE_URL/works/$bookId.json")
+        }
+    }
 }
