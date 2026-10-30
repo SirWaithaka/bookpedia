@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.jetbrains.kotlin.serialization)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -64,6 +65,9 @@ kotlin {
             implementation(libs.bundles.coil)
             implementation(libs.kotlinxSerializationJson)
             implementation(libs.jetbrains.compose.navigation)
+
+            implementation(libs.androidx.room.runtime)
+            implementation(libs.sqlite.bundled)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -75,5 +79,8 @@ kotlin {
 }
 
 dependencies {
+    add("kspAndroid", libs.androidx.room.compiler)
+    add("kspIosSimulatorArm64", libs.androidx.room.compiler)
+    add("kspIosArm64", libs.androidx.room.compiler)
     androidRuntimeClasspath(libs.compose.uiTooling)
 }
